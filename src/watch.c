@@ -33,6 +33,12 @@
 #define ARGS_MAX 128
 
 /*
+ * Define shell.
+ */
+
+#define SHELL getenv("SHELL")
+
+/*
  * Quiet mode.
  */
 
@@ -204,7 +210,7 @@ main(int argc, const char **argv){
 
   // cmd
   char *val = join(args, len, " ");
-  char *cmd[4] = { "sh", "-c", val, 0 };
+  char *cmd[4] = { SHELL, "-c", val, 0 };
 
   // exec loop
   loop: {
